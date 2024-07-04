@@ -4,22 +4,20 @@ from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 from selenium.common.exceptions import TimeoutException
 
-# Initialize the WebDriver (Chrome in this case)
+# Initialize the ChromeDriver 
 driver = webdriver.Chrome()
 
 try:
-    # Step 1: Go to https://www.kurtosys.com/
+    # Go to kurtosys home page
     driver.get("https://www.kurtosys.com/")
     print("Navigated to Kurtosys website")
 
-    # Wait for the page to load completely
     WebDriverWait(driver, 20).until(
         EC.presence_of_element_located((By.ID, "onetrust-accept-btn-handler"))
     )
 
-    # Step 2: Dismiss the consent overlay if present
+    # Dismiss the consent overlay
     try:
-        # Attempt to find and click the dismiss button for the consent overlay
         dismiss_button = WebDriverWait(driver, 10).until(
             EC.element_to_be_clickable((By.ID, "onetrust-accept-btn-handler"))
         )
@@ -28,7 +26,7 @@ try:
     except TimeoutException:
         print("Consent overlay not found or already dismissed")
 
-    # Step 3: Navigate to “White Papers & eBooks” with retry mechanism
+    # Navigating to White Papers & eBooks
     try:
         white_papers_ebooks_link = WebDriverWait(driver, 10).until(
             EC.element_to_be_clickable((By.LINK_TEXT, "White Papers & eBooks"))
@@ -36,8 +34,7 @@ try:
         white_papers_ebooks_link.click()
         print("Clicked on White Papers & eBooks")
 
-        # Additional steps after clicking the link
-        # Step 4: Wait for the 'UCITS Whitepaper' link and click it
+    
         try:
             ucits_whitepaper_link = WebDriverWait(driver, 10).until(
                 EC.element_to_be_clickable((By.LINK_TEXT, "UCITS Whitepaper"))
@@ -45,7 +42,7 @@ try:
             ucits_whitepaper_link.click()
             print("Clicked on UCITS Whitepaper")
             
-            # Step 5: Wait for the page to load after clicking 'UCITS Whitepaper'
+            # page to load after clicking 'UCITS Whitepaper'
             WebDriverWait(driver, 20).until(
                 EC.url_contains("/white-papers/eu-rule-change-bolsters-need-for-fast-localized-fund-website-platforms-2/")
             )
@@ -57,7 +54,7 @@ try:
     except TimeoutException:
         print("Timed out waiting for 'White Papers & eBooks' link to be clickable")
 
-    # Step 6: Verify Page URL
+    # Verify Page URL
     expected_url = "https://www.kurtosys.com/white-papers-ebooks"
     try:
         WebDriverWait(driver, 10).until(
@@ -69,6 +66,5 @@ try:
         print(f"Timed out waiting for URL to be '{expected_url}', current URL: '{driver.current_url}'")
 
 finally:
-    # Close the WebDriver
     driver.quit()
     print("Closed the WebDriver")
