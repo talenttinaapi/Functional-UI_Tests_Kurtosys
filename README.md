@@ -4,13 +4,13 @@ This repository contains automated functional UI tests using Selenium WebDriver 
 
 ## Table of Contents
 
-- [Prerequisites](#prerequisites)
-- [Getting Started](#getting-started)
-- [Running the Tests](#running-the-tests)
-- [Test Case Description](#test-case-description)
-- [Folder Structure](#folder-structure)
-- [Contributing](#contributing)
-- [License](#license)
+- [Prerequisites]
+- [Getting Started]
+- [Running the Tests]
+- [Test Case Description]
+- [Folder Structure]
+- [Contributing]
+- [License]
 
 ## Prerequisites
 
