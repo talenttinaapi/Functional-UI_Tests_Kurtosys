@@ -16,11 +16,8 @@ This repository contains automated functional UI tests using Selenium WebDriver 
 
 Before running the tests, ensure you have the following installed:
 
-- Python 3.x
-- Selenium WebDriver
-- ChromeDriver (or WebDriver for your preferred browser)
+It's recommended to use a virtual environment to manage dependencies. You can create and activate a virtual environment as follows:
 
-Install Python dependencies using pip:
-
-```bash
-pip install selenium pillow
+```sh
+python -m venv venv
+source venv/bin/activate  # On Windows use `.\venv\Scripts\activate`
