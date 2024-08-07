@@ -1,6 +1,6 @@
 # Functional UI Tests for Kurtosys Website
 
-This repository contains automated functional UI tests using Selenium WebDriver for the Kurtosys website.
+This repository contains automated functional UI tests using Selenium WebDriver for the Kurtosys main website.
 
 ## Table of Contents
 
